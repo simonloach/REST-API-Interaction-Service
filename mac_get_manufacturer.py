@@ -3,14 +3,14 @@ import argparse
 import json
 import re
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser() 
 
 parser.add_argument("mac", type=str, help="MAC Address in the format XX:XX:XX:XX:XX:XX")
 args = parser.parse_args()
 
-regex = re.match(r"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", args.mac)
+matches_mac_regex = re.match(r"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", args.mac)
 
-if not regex:
+if not matches_mac_regex:
     print("This is not a valid MAC Address")
     exit()
 
